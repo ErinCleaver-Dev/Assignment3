@@ -28,7 +28,7 @@ TermsArray::TermsArray()
 
 }
 
-
+// A override that gets the number of terms.
 TermsArray::TermsArray(int iValue) {
 	this->sTermsArray[iValue];
 }
@@ -55,8 +55,7 @@ string TermsArray::getSelectedTerm(int &iPos)
 // Gets the Size of the Array.  
 int TermsArray::getArraySize()
 {
-	
-	return  size(sTermsArray);
+	return sTermsArray->size();
 }
 
 

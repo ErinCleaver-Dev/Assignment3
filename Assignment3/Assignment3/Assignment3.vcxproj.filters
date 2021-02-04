@@ -24,12 +24,18 @@
     <ClCompile Include="AccessFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="wordControler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccessFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TermsArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wordControler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

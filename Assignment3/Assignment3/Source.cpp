@@ -11,6 +11,8 @@
 #include <string>
 #include <iomanip> // to access setw()
 #include "TermsArray.h"
+#include "AccessFile.h"
+#include "wordControler.h"
 
 //namespace declaration
 using namespace std;
@@ -24,14 +26,20 @@ int main(int argc, char* argv[]) {
 	int iFirstValue;
 	char cCtopApp = 'N', ans;
 	TermsArray termsArray;//get class with array
+	TermsArray termsFromFile(12);
 	
 
+	
+	
 	{
 		cout << "The name used to start the program: " << argv[0]<< "\n";//display arguments
 		for (int iN = 1; iN < argc; iN++)
 			cout << setw(2) << " " << argv[iN] << '\n';
 		
 	}
+
+
+
 	
 	do {
 		displayMenu(termsArray);//get the welcome message

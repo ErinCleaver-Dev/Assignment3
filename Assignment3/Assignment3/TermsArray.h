@@ -17,8 +17,10 @@ private:
 public:
 
 	// constructors 
-	TermsArray();
+	// A override that get the number of terms 
 	TermsArray(int iValue);
+	TermsArray();
+
 	// Destructors
 	~TermsArray();
 

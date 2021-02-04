@@ -142,10 +142,12 @@
     <ClCompile Include="AccessFile.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TermsArray.cpp" />
+    <ClCompile Include="wordControler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccessFile.h" />
     <ClInclude Include="TermsArray.h" />
+    <ClInclude Include="wordControler.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="termsfile.txt" />
