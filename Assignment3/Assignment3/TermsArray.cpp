@@ -11,7 +11,8 @@ using namespace std;
 
 // A constructor for the termsArry class.  It assigns values to ther terms array.  
 TermsArray::TermsArray()
-{
+{	// Removed because this information will be moved to a file
+	this->sTermsArray[12];
 	this->sTermsArray[0] = "home";
 	this->sTermsArray[1] = "Apples";
 	this->sTermsArray[2] = "Accurate";
@@ -27,9 +28,20 @@ TermsArray::TermsArray()
 
 }
 
+
+TermsArray::TermsArray(int iValue) {
+	this->sTermsArray[iValue];
+}
 // Destructors
 TermsArray::~TermsArray()
 {
+}
+
+// Function to get terms from file
+void TermsArray::setTerms(int& iValue, string& sValue)
+{
+	this->sTermsArray[iValue] = sValue;
+
 }
 
 // Selects the current term

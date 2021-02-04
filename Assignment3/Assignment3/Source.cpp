@@ -24,6 +24,7 @@ int main(int argc, char* argv[]) {
 	int iFirstValue;
 	char cCtopApp = 'N', ans;
 	TermsArray termsArray;//get class with array
+	
 
 	{
 		cout << "The name used to start the program: " << argv[0]<< "\n";//display arguments
@@ -31,8 +32,6 @@ int main(int argc, char* argv[]) {
 			cout << setw(2) << " " << argv[iN] << '\n';
 		
 	}
-
-	
 	
 	do {
 		displayMenu(termsArray);//get the welcome message

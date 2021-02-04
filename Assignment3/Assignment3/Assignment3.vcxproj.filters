@@ -21,10 +21,21 @@
     <ClCompile Include="TermsArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AccessFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TermsArray.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="AccessFile.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TermsArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="termsfile.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

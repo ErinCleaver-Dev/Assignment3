@@ -12,15 +12,18 @@ class TermsArray
 {
 private:
 
-	string sTermsArray[12];
+	string sTermsArray[];
 
 public:
 
 	// constructors 
 	TermsArray();
+	TermsArray(int iValue);
 	// Destructors
 	~TermsArray();
 
+	
+	void setTerms(int&, string&);
 	// Selects the current term
 	string getSelectedTerm(int&);
 
