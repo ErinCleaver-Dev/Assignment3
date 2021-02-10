@@ -9,10 +9,10 @@
 using namespace std;
 #include "TermsArray.h"
 
+
 // A constructor for the termsArry class.  It assigns values to ther terms array.  
 TermsArray::TermsArray()
 {	// Removed because this information will be moved to a file
-	this->sTermsArray[12];
 	this->sTermsArray[0] = "home";
 	this->sTermsArray[1] = "Apples";
 	this->sTermsArray[2] = "Accurate";
@@ -29,9 +29,13 @@ TermsArray::TermsArray()
 }
 
 // A override that gets the number of terms.
-TermsArray::TermsArray(int iValue) {
+
+TermsArray::TermsArray(int iValue)
+{
 	this->sTermsArray[iValue];
 }
+
+
 // Destructors
 TermsArray::~TermsArray()
 {

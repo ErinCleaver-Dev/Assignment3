@@ -1,0 +1,4 @@
+﻿  Source.cpp
+W:\Assignment3\Assignment3\Assignment3\TermsArray.h(15,22): warning C4200: nonstandard extension used: zero-sized array in struct/union
+W:\Assignment3\Assignment3\Assignment3\TermsArray.h(15,22): message : This member will be ignored by a defaulted constructor or copy/move assignment operator
+  Assignment3.vcxproj -> W:\Assignment3\Assignment3\Debug\Assignment3.exe

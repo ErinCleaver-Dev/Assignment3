@@ -11,56 +11,77 @@
 #include <string>
 #include <iomanip> // to access setw()
 #include "TermsArray.h"
+#include <fstream>
 #include "AccessFile.h"
-#include "wordControler.h"
+#include "hangman.h"
+
+
+
 
 //namespace declaration
 using namespace std;
 
 //function definition section
 int valInput();
-void displayMenu(TermsArray& termsArray);
+void displayMenu();
+//vector<char> getWord(int, TermsArray &arr);
+//vector<char> getUpdatedVector(char,vector<char>);
+
 
 int main(int argc, char* argv[]) {
 	//inputs
+	int count = 0;
 	int iFirstValue;
-	char cCtopApp = 'N', ans;
+	char stopApp = 'N', ans;
+	//string fileWord;
+	//AccessFile file;//access textfile
 	TermsArray termsArray;//get class with array
-	TermsArray termsFromFile(12);
-	
-
-	
-	
-	{
-		cout << "The name used to start the program: " << argv[0]<< "\n";//display arguments
-		for (int iN = 1; iN < argc; iN++)
-			cout << setw(2) << " " << argv[iN] << '\n';
-		
-	}
+	TermsArray termsFromfile(12);
+	//Hangman hangman;
 
 
+	//file.readFile();
+	//cin >> userGuess;
+	//file.findWord(userGuess);
 
 	
 	do {
-		displayMenu(termsArray);//get the welcome message
-
-		cout << "Do you wish to play? Enter y if yes.\n";
+		displayMenu();//get the welcome message/ while switch
 		cin >> ans;
-		while (toupper(ans) == 'Y') {
-			cout << "Please pick a word you would like to display:\n";
-			cout << "Remember you can only pick numbers 1-12 from the list.\n";
+		switch (ans)
+		{
+		case '0':
+			cout << "Pleasse select a number between 1 to 12.\n";
+			//A for loop for displaying the terms
+			//iFirstValue = valInput() - 1;
+			
+			//hangman.startGame(termsArray, iFirstValue);
 
-			iFirstValue = valInput();//call function to validate number
-			iFirstValue -= 1;// -1 to get index position of array
+			break;
 
-			cout << iFirstValue + 1 << ": "<< termsArray.getSelectedTerm(iFirstValue) << endl;//output the word selected
+		case '1'://File
+			cout << "Please pick a word from file below\n";
+			iFirstValue = valInput() - 1;
+
+			//file.readFile(termsFromfile);
+			
+			//hangman.startGame(termsFromfile, iFirstValue);
+			break;
+		case '2':
+			stopApp = 'N';//stop the app
+			break;
+
+		default:
+			cout << "Well...\n";//In case of user error
 			break;
 		}
-		if (toupper(ans) == 'Y') { 
+		
+		if (ans == '0' || ans == '1' || ans != '2') {
 			cout << "Would you like to continue? Enter y for yes, anything else for no.\n";
-			cin >> cCtopApp;
+			cin >> stopApp;
 		}
-	}while(toupper(cCtopApp) == 'Y');
+		
+	} while (toupper(stopApp) == 'Y');
 
 	return 0;
 }
@@ -77,12 +98,40 @@ int valInput() {// If cin fails or if number is not 1-12, force user to reinput
 	}
 	return iValue;//return required value
 }
-void displayMenu(TermsArray &termsArray) {
-	cout <<"~Welcome Human user~" << endl;
+void displayMenu() {
+	cout << "~Welcome Human user~" << endl;
+	cout << "Please select an option\n";
+	cout << "0: Pick word from list\n";
+	cout << "1: Pick word from file\n";
+	cout << "2: Exit program\n";
 
-	//A for loop for displaying the terms
-	for (int iCount = 0; iCount < termsArray.getArraySize(); iCount++) {
-		int iDisplayNumber = iCount + 1;
-		cout << iDisplayNumber << ". " << termsArray.getSelectedTerm(iCount) << endl; ;
-	}
+	
 }
+/*vector<char> getWord(int a, TermsArray &arr) {
+	string s= arr.getSelectedTerm(a);
+	
+
+	vector<char> v(s.begin(), s.end());
+
+	//for (const char &c : v)
+		//std::cout << c;
+	//for (int i = 0; i < v.size(); i++) {
+		//cout << v[i] << endl;
+
+	//}
+	return v;
+}
+*/
+
+/*vector<char> getUpdatedVector(char s, vector<char> v){
+	vector <char> k;
+	for (int i = 0; i < v.size(); i++) {
+		if (v[i] != s) {
+			k.push_back(v[i]);
+		}
+	}
+
+	return k;
+}
+*/
+

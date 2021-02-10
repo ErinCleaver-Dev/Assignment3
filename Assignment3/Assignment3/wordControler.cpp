@@ -7,9 +7,14 @@ WordControler::WordControler()
 	this->bWordUpdated = false;
 }
 
+WordControler::~WordControler() {
+	this->vCurrentWord.clear();
+	this->vCurrentWord.clear();
+}
+
 
 // sets the current term for the selected term to be guessed.
-void WordControler::setTerm(string& sWord)
+void WordControler::setTerm(string sWord)
 {
 	// goes through a for loop to get the charchters for the words
 	for  (char cValue : sWord)
@@ -62,9 +67,21 @@ void WordControler::getGuess(char& cGuess, int& iValue)
 
 }
 
+bool WordControler::runHangman()
+{
+	return vCurrentlyDisplayed == vCurrentWord;
+}
+
+bool WordControler::getbWordupdate()
+{
+	return bWordUpdated;
+}
+
 // Gets the value of rather the wor has been updated.
 bool WordControler::getUpdate()
 {
+
+
 	return bWordUpdated;
 }
 
@@ -95,7 +112,7 @@ void WordControler::getGuess(char& cGuess)
 // Used to update current letters being displayed.
 void WordControler::updateCurrentlyDisplayed(char& cGuess, int& iValue)
 {
-	this->vCurrentlyDisplayed[iValue] = cGuess;
+	vCurrentlyDisplayed[iValue] = cGuess;
 }
 
 // Used to set rather the value has been updated or not.  
@@ -103,3 +120,4 @@ void WordControler::setbWordUpdated(bool bValue)
 {
 	this->bWordUpdated = bValue;
 }
+
