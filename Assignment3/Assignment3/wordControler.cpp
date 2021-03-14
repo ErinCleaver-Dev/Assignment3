@@ -1,21 +1,22 @@
 #include "wordControler.h"
-
+#include "iostream";
 
 //
 WordControler::WordControler()
 {
+	
 	this->bWordUpdated = false;
 }
 
 WordControler::~WordControler() {
-	this->vCurrentWord.clear();
-	this->vCurrentWord.clear();
+	
 }
 
 
 // sets the current term for the selected term to be guessed.
 void WordControler::setTerm(string sWord)
 {
+
 	// goes through a for loop to get the charchters for the words
 	for  (char cValue : sWord)
 	{
@@ -31,14 +32,17 @@ void WordControler::setTerm(string sWord)
 string WordControler::displayKnowLetters()
 {
 	string sTerm;
-
+	int iSize = vCurrentlyDisplayed.size();
 	// displays the currently know letters
-	for (char cValue : vCurrentlyDisplayed) {
-		sTerm += cValue + " ";
+	for (int i = 0; i < iSize; i++) {
+		sTerm += vCurrentlyDisplayed[i];
+		sTerm += " ";
 	}
+	
 
     return sTerm;
 }
+
 
 
 // Lets the user guess a value for a speific space.
@@ -69,12 +73,27 @@ void WordControler::getGuess(char& cGuess, int& iValue)
 
 bool WordControler::runHangman()
 {
+	
+	
 	return vCurrentlyDisplayed == vCurrentWord;
+	
 }
 
 bool WordControler::getbWordupdate()
 {
 	return bWordUpdated;
+}
+
+void WordControler::clearOutWord()
+{
+	if (vCurrentlyDisplayed == vCurrentWord) {
+		while (!vCurrentWord.empty()) {
+			vCurrentWord.pop_back();
+		}
+		while (!vCurrentlyDisplayed.empty()) {
+			vCurrentlyDisplayed.pop_back();
+		}
+	}
 }
 
 // Gets the value of rather the wor has been updated.
@@ -98,14 +117,11 @@ void WordControler::getGuess(char& cGuess)
 			//Checks to see if the value already exists for the letters that are currently displayed
 			if (vCurrentlyDisplayed[iValue] != cGuess) {
 				updateCurrentlyDisplayed(cGuess, iValue);
-
 				// Becomes true
 				setbWordUpdated(true);
 			} 
 		} 
 	}
-
-
 }
 
 

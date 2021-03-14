@@ -10,11 +10,11 @@
 #include <iostream>
 #include <string>
 #include <iomanip> // to access setw()
-#include "TermsArray.h"
+#include "TermsList.h"
 #include <fstream>
 #include "AccessFile.h"
 #include "hangman.h"
-
+#include "HighScore.h"
 
 
 
@@ -23,7 +23,9 @@ using namespace std;
 
 //function definition section
 int valInput();
+int valInput(int iCount);
 void displayMenu();
+bool test = true;
 //vector<char> getWord(int, TermsArray &arr);
 //vector<char> getUpdatedVector(char,vector<char>);
 
@@ -33,42 +35,40 @@ int main(int argc, char* argv[]) {
 	int count = 0;
 	int iFirstValue;
 	char stopApp = 'N', ans;
-	//string fileWord;
-	//AccessFile file;//access textfile
-	TermsArray termsArray;//get class with array
-	TermsArray termsFromfile(12);
-	//Hangman hangman;
+	string fileWord;
+	FileMangement file;//access textfile
+	TermsList termsFromfile(file.countWords());
+	TermsList termsArray;//get class with array
+	map<string, int> gMap;
+	Hangman hangman(gMap);
 
 
-	//file.readFile();
-	//cin >> userGuess;
-	//file.findWord(userGuess);
-
-	
 	do {
 		displayMenu();//get the welcome message/ while switch
 		cin >> ans;
 		switch (ans)
 		{
 		case '0':
-			cout << "Pleasse select a number between 1 to 12.\n";
-			//A for loop for displaying the terms
-			//iFirstValue = valInput() - 1;
+			cout << "Pleasse select a number between 1 to 12 to select a word to guess.\n";
 			
-			//hangman.startGame(termsArray, iFirstValue);
+			iFirstValue = valInput() - 1;
+			// Access's hangman application
+			hangman.startGame(termsArray, iFirstValue);
 
 			break;
 
 		case '1'://File
-			cout << "Please pick a word from file below\n";
-			iFirstValue = valInput() - 1;
+			cout << "Pleasse select a number between 1 to " << file.countWords() << " to select a word to guess.\n";
+			iFirstValue = valInput(file.countWords()) - 1;
 
-			//file.readFile(termsFromfile);
-			
-			//hangman.startGame(termsFromfile, iFirstValue);
+			file.readFile(termsFromfile);
+			// Access's hangman application
+			hangman.startGame(termsFromfile, iFirstValue);
 			break;
-		case '2':
-			stopApp = 'N';//stop the app
+		case '2': //Display highscore
+			hangman.displayHighScore();
+		case '3': //File
+			stopApp = 'Y';//stop the app
 			break;
 
 		default:
@@ -76,12 +76,23 @@ int main(int argc, char* argv[]) {
 			break;
 		}
 		
-		if (ans == '0' || ans == '1' || ans != '2') {
-			cout << "Would you like to continue? Enter y for yes, anything else for no.\n";
-			cin >> stopApp;
+		if (ans == 'y' || ans == '1' || ans == '2' || ans != '3') {
+			do {
+				cout << "Would you like to continue? Enter y for yes, type n for exit.\n";
+
+				cin >> stopApp;
+				stopApp = toupper(stopApp);
+				cout << stopApp << endl;
+				if (stopApp == 'Y' || stopApp == 'N')
+				{
+					test = false;
+				}
+
+
+			} while (test);
 		}
 		
-	} while (toupper(stopApp) == 'Y');
+	} while (stopApp != 'N');
 
 	return 0;
 }
@@ -98,12 +109,26 @@ int valInput() {// If cin fails or if number is not 1-12, force user to reinput
 	}
 	return iValue;//return required value
 }
+
+int valInput(int iCount) {// If cin fails or if number is not 1-12, force user to reinput
+
+	int iValue;
+	cin >> iValue;
+	while (cin.fail() || iValue > iCount || iValue < 1) {
+		cin.clear();
+		cin.ignore(100, '\n');
+		cout << "Nice try... But please pick a number 1-12!\n";
+		cin >> iValue;
+	}
+	return iValue;//return required value
+}
 void displayMenu() {
 	cout << "~Welcome Human user~" << endl;
 	cout << "Please select an option\n";
 	cout << "0: Pick word from list\n";
 	cout << "1: Pick word from file\n";
-	cout << "2: Exit program\n";
+	cout << "2: Would you like to display the high score?\n";
+	cout << "3: Exit program\n";
 
 	
 }

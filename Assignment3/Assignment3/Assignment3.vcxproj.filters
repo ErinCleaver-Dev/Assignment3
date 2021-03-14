@@ -18,9 +18,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TermsArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AccessFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -30,12 +27,18 @@
     <ClCompile Include="hangman.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TermsList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HighScore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccessFile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TermsArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="wordControler.h">
@@ -44,10 +47,20 @@
     <ClInclude Include="hangman.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TermsList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="termsfile.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="highScroe.txt" />
   </ItemGroup>
 </Project>

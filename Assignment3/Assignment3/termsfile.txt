@@ -1,6 +1,6 @@
 home
-Apples
-Accurate
+apples
+accurate
 trouble
 random
 tiger

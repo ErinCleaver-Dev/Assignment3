@@ -31,7 +31,7 @@ public:
 	bool runHangman();
 	bool getbWordupdate();
 
-
+	void clearOutWord();
 
 };
 
